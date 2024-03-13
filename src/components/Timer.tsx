@@ -16,9 +16,11 @@ export const Timer: React.FC<{
               Notification.requestPermission();
               break;
             case "granted":
-              new Notification("Code Tips", {
+                new Audio("./wav.mp3").play();
+              new Notification("30分経ちました！", {
                 // ここを追加
-                body: "最新のニュースをお知らせします",
+                body: "振り返りましょう！",
+
               });
               break;
             case "denied":
