@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 
 export const Timer: React.FC<{
     setIsDisplay: (value: React.SetStateAction<boolean>) => void;
+
   }> = ({ setIsDisplay }) => {
-    const [count, setCount] = useState(10);
-  
+    const [count, setCount] = useState(5);
+    
+
     useEffect(() => {
       console.log("再レンダー");
       if (count < 0) {
@@ -14,6 +16,7 @@ export const Timer: React.FC<{
   
       const doInterval = setInterval(() => {
         setCount((prev) => prev - 1);
+        console.log(count)
       }, 1000);
   
       return () => {
@@ -23,7 +26,10 @@ export const Timer: React.FC<{
     }, [count, setIsDisplay]);
   
     return (
+        <>
       <p>{count}</p>
+      {count<1 && <p>じゃんけん</p>}
+      </>
     );
   };
   
